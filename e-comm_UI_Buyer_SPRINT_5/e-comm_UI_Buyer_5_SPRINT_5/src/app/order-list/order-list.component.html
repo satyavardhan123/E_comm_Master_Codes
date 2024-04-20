@@ -1,0 +1,67 @@
+<app-buyernavbar></app-buyernavbar>
+
+<div class="order-container" *ngFor="let order of orders">
+    <div class="order-details">
+        <div class="left-details">
+            <p><strong><span style="color: red; font-style: italic;">Order ID:</span></strong> {{ order.orderId }}</p>
+            <p><strong>Payment ID:</strong> {{ order.paymentId }}</p>
+            <p><strong>Buyer Name:</strong> {{ order.buyerName }}</p>
+            <p><strong>Buyer_Email:</strong> {{ order.email }}</p>
+            <p><strong>Delivery_Address:</strong> {{ order.deliveryAddress }}</p>
+            <p><strong>Phone No:</strong> {{ order.phoneNo }}</p>
+            <p><strong>Total Amount:</strong> {{ order.totalOrderAmount }}</p>
+            <p>
+                <strong>Status:</strong>
+                <span [ngClass]="{
+                    'status-pending': order.status === 'Payment Success',
+                    'status-received': order.status === 'Order Received',
+                    'status-shipped': order.status === 'Order Shipped',
+                    'status-dispatched': order.status === 'Order Dispatched'
+                }" class="inline-status">
+                    {{ order.status }}
+                </span>
+            </p>
+        </div>
+        <div class="products-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Unit_Price</th>
+                        <th>Quantity</th>
+                        <th>Total Product Amount</th>
+                        <th>Image</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of order.items">
+                        <td>{{ item.productName }}</td>
+                        <td>{{ item.unitPrice }}</td>
+                        <td>{{ item.quantity }}</td>
+                        <td>{{ item.totalProductPrice }}</td>
+                        <td><img style="height:30px;width:30px;" [routerLink]="['/productdetail', item.productId]"src="{{item.thumbnail}}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+
+   
+
+    <hr class="hr-divider">
+</div>
+<div class="special">
+<button routerLink="/shop" style=" 
+ margin: 5px;
+  padding: 8px 16px;
+  border: none;
+ 
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  color:aliceblue;
+  transition: background-color 0.3s ease;
+  background-color: cadetblue;
+">Continue Shopping</button></div>
