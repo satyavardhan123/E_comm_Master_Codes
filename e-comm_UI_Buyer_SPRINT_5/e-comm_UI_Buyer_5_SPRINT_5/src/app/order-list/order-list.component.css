@@ -1,0 +1,73 @@
+.order-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px; /* Adjust as needed */
+}
+
+.order-details {
+  border: 1px solid #ccc;
+  padding: 20px;
+  display: flex; /* Added */
+  justify-content: space-between; /* Added */
+  align-items: center; /* Added */
+}
+
+.order-details p {
+  margin: 5px 0;
+}
+
+.order-details img {
+  max-width: 100px;
+  height: auto;
+}
+
+.status-pending {
+  font-weight: bold;
+  color: rgb(155, 155, 72);
+}
+
+.status-received {
+  font-weight: bold;
+  color: blue;
+}
+
+.status-shipped {
+  font-weight: bold;
+  color: purple;
+}
+
+.status-dispatched {
+  font-weight: bold;
+  color: green;
+}
+
+
+.products-table {
+  flex: 1; /* Added */
+  margin-left: 20px; /* Adjust as needed */
+}
+
+.products-table table {
+  width: 100%; /* Added */
+  border-collapse: collapse;
+}
+
+.products-table th, .products-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.products-table th {
+  background-color: #f2f2f2;
+}
+
+.products-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.special {
+  display: flex;
+  justify-content: center; /* Align button to center */
+  margin-top: 20px; /* Adjust as needed */
+}
