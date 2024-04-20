@@ -1,0 +1,30 @@
+<div class="content flex-grow-1 flex-shrink-1">
+    <!-- Your main content goes here -->
+    <div class="table-container mt-5">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>NAME</th>
+                    <th>COMPANY_NAME</th>
+                    <th>GSTIN</th>
+                    <th>COMPANY_ADDRESS</th>
+                   
+                    <th>PHONE_NO</th>
+                  
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let element of sellerDto">
+                    <td>{{element.id}}</td>
+                    <td>{{element.name}}</td>
+                    <td>{{element.companyName}}</td>
+                    <td>{{element.gstNumber}}</td>
+                    <td>{{element.companyAddress}}</td>
+                    <td>{{element.phoneNumber}}</td>
+                   
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

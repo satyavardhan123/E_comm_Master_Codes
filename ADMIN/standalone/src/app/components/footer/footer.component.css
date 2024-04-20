@@ -1,0 +1,25 @@
+/* footer.component.css */
+.footer {
+    background-color: #c2d6dd;
+   
+    
+    color:black;
+    padding: 20px ;
+    padding-left:35%;
+    text-align: center;
+   
+   
+    justify-content: center;
+}
+
+.container{
+    
+    justify-content: center;
+    align-items: center;
+    color: black;
+
+}
+
+.footer p {
+    margin: 0;
+}

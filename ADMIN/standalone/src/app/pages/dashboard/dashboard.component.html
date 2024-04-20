@@ -1,0 +1,71 @@
+<div class="grid-container">
+
+ 
+
+
+    <!-- Main -->
+    <main class="main-container">
+        <div class="main-title">
+            <p class="font-weight-bold">DASHBOARD</p>
+        </div>
+
+        <div class="main-cards">
+
+            <div class="card">
+                <div class="card-inner">
+                    <p class="text-primary">PRODUCTS</p>
+                    <span class="material-icons-outlined text-blue">inventory_2</span>
+                </div>
+                <span class="text-primary font-weight-bold"id="productCount">{{ productCount ? productCount : 'Loading...' }}</span>
+            </div>
+
+            <div class="card">
+                <div class="card-inner">
+                    <p class="text-primary">PURCHASE ORDERS</p>
+                    <span class="material-icons-outlined text-orange">shopping_cart</span>
+                </div>
+                <span class="text-primary font-weight-bold">{{ orderCount ? orderCount : 'Loading...' }}</span>
+            </div>
+
+            <div class="card">
+                <div class="card-inner">
+                    <p class="text-primary">SELLERS REGISTERED</p>
+                    <span class="material-icons-outlined text-green">handshake</span>
+                </div>
+                <span class="text-primary font-weight-bold">{{ sellerCount ? sellerCount : 'Loading...' }}</span>
+            </div>
+
+            <div class="card">
+                <div class="card-inner">
+                    <p class="text-primary">BUYERS REGISTERED</p>
+                    <span class="material-icons-outlined text-red">shopping_bag</span>
+                </div>
+                <span class="text-primary font-weight-bold">{{ buyerCount ? buyerCount : 'Loading...' }}</span>
+            </div>
+
+        </div>
+
+        <div class="charts">
+
+            <div class="charts-card">
+                <p class="chart-title">GENERATED REVENUE</p>
+               <span class="total-revenue">₹{{ totalRevenue }}</span>
+               
+            </div>
+
+            <div class="charts-card">
+                <p class="chart-title">CURRENT_TIMESTAMP</p>
+                <span class="total-revenue" style="font-size: 20px;padding:20%">{{ currentDate }}</span>
+            </div>
+
+        </div>
+    </main>
+    <!-- End Main -->
+</div>
+
+    
+        <!-- Scripts -->
+        <!-- ApexCharts -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
+        <!-- Custom JS -->
+        <script src="../assets/scripts.js"></script>

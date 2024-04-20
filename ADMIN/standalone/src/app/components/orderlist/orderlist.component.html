@@ -1,0 +1,51 @@
+
+<div class="grid-container"> <!-- Main -->
+    <main class="main-container">
+        <div class="main-cards">
+
+            <div class="card">
+                <div class="card-inner">
+                    <p [routerLink]="['/orders/orders']" class="text-primary">TOTAL ORDERS</p>
+                    <span class="material-symbols-outlined">
+                        grading
+                        </span>
+                </div>
+                <span class="text-primary font-weight-bold"id="productCount">{{ orderCount ? orderCount : 'Loading...' }}</span>
+            </div>
+
+            <div class="card">
+                <div class="card-inner">
+                    <p  [routerLink]="['/orders/order-received']" class="text-primary">ORDERS RECEIVED</p>
+                    <span class="material-icons-outlined text-orange">check_circle</span>
+                </div>
+                <span class="text-primary font-weight-bold">{{ statuscount1 ? statuscount1 : 'loading...' }}</span>
+            </div> 
+
+            <div class="card" >
+                <div class="card-inner">
+                    <p  [routerLink]="['/orders/order-shipped']" class="text-primary">ORDERS SHIPPED</p>
+                    <span class="material-symbols-outlined">
+                        local_shipping
+                        </span>
+                </div>
+                <span class="text-primary font-weight-bold">{{ statuscount2 ? statuscount2 : 'loading...' }}</span>
+            </div>
+
+            <div class="card" >
+                <div class="card-inner">
+                    <p  [routerLink]="['/orders/order-dispatched']" class="text-primary">ORDERS DISPATCHED</p>
+                    <span class="material-symbols-outlined">
+                        package_2
+                        </span>
+                </div>
+                <span class="text-primary font-weight-bold">{{statuscount3 ? statuscount3 : 'loading...' }}</span>
+            </div>
+
+        </div>
+
+    </main>
+    <!-- End Main -->
+</div>
+
+    
+  

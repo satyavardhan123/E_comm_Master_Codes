@@ -1,0 +1,31 @@
+<div class="content flex-grow-1 flex-shrink-1">
+    <!-- Your main content goes here -->
+    <div class="table-container mt-5">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>PRODUCT_NAME</th>
+                    <th>THUMBNAIL</th>
+                    <th>PRICE</th>
+                    <th>QUANTITY</th>
+                    <th>CATEGORY</th>
+                    <th>SUB_CAT_1</th>
+                    <th>SUB_CAT_2</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let element of productDetails">
+                    <td>{{element.productId}}</td>
+                    <td>{{element.name}}</td>
+                    <td><img style="height:30px;width:30px;" src="{{element.thumbnail}}"></td>
+                    <td>{{element.price}}</td>
+                    <td>{{element.quantity}}</td>
+                    <td>{{element.category}}</td>
+                    <td>{{element.subcategory1}}</td>
+                    <td>{{element.subcategory2}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

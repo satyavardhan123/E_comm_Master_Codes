@@ -1,0 +1,63 @@
+<app-orderlist></app-orderlist>
+
+<b>TOTAL ORDERS DISPATCHED : {{statuscount}}</b>
+<br>
+<br>  
+<div class="order-container" *ngFor="let order of orderDto">
+    <div class="order-details">
+        <div class="left-details">
+            <p><strong><span style="color: red; font-style: italic;">Order ID:</span></strong> {{ order.orderId }}</p>
+            <p><strong>Payment ID:</strong> {{ order.paymentId }}</p>
+            <p><strong>Buyer Name:</strong> {{ order.buyerName }}</p>
+            <p><strong>Buyer_Email:</strong> {{ order.email }}</p>
+            <p><strong>Delivery_Address:</strong> {{ order.deliveryAddress }}</p>
+            <p><strong>Phone No:</strong> {{ order.phoneNo }}</p>
+            <p><strong>Total Amount:</strong> {{ order.totalOrderAmount }}</p>
+            <p>
+                <strong>Status:</strong>
+                <span [ngClass]="{
+                    'status-pending': order.status === 'Payment Success',
+                    'status-received': order.status === 'Order Received',
+                    'status-shipped': order.status === 'Order Shipped',
+                    'status-dispatched': order.status === 'Order Dispatched'
+                }" class="inline-status">
+                    {{ order.status }}
+                </span>
+            </p>
+            <div class="action-buttons">
+                <button class="action-btn order-recieved" (click)="updateOrderStatus(order.orderId, 'Order Received')">Order Recieved</button>
+                <button class="action-btn order-shipped" (click)="updateOrderStatus(order.orderId, 'Order Shipped')">Order Shipped</button>
+                <button class="action-btn order-dispatched" (click)="updateOrderStatus(order.orderId, 'Order Dispatched')">Order Dispatched</button>
+            </div>
+        </div>
+        <div class="products-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Unit_Price</th>
+                        <th>Quantity</th>
+                        <th>Total Product Amount</th>
+                        <th>Image</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of order.items">
+                        <td>{{ item.productName }}</td>
+                        <td>{{ item.unitPrice }}</td>
+                        <td>{{ item.quantity }}</td>
+                        <td>{{ item.totalProductPrice }}</td>
+                        <td><img style="height:30px;width:30px;" src="{{item.thumbnail}}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+   
+   
+
+    <hr class="hr-divider">
+</div>
+
