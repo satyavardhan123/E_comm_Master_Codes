@@ -6,6 +6,28 @@ import { BuyerDto } from '../buyer-dto';
 import Swal from 'sweetalert2';
 import { PaymentService } from '../payment.service';
 
+function cardNumberValidator(control: AbstractControl): ValidationErrors | null {
+  const validCardNumber =8688965686868896 ;
+  const enteredCardNumber = control.value.replace(/-/g, ''); // Remove dashes before validation
+  if (enteredCardNumber.length !== 16 || parseInt(enteredCardNumber) !== validCardNumber) {
+    return { invalidCardNumber: true };
+  }
+  return null;
+}
+
+
+function CVVValidator(control: AbstractControl): ValidationErrors | null {
+  const validCVVNumber = 152;
+  const enteredCVV = control.value;
+  
+  // Check if CVV is numeric and has 3 digits
+  if (!/^\d{3}$/.test(enteredCVV) || parseInt(enteredCVV) !== validCVVNumber) {
+    return { invalidCVV: true };
+  }
+  
+  return null;
+}
+
 
 @Component({
   selector: 'app-checkout',
@@ -15,7 +37,12 @@ import { PaymentService } from '../payment.service';
 export class CheckoutComponent implements OnInit{
   checkoutForm!: FormGroup ;
  
-  
+  formatCardNumber(event: any): void {
+    const input = event.target.value.replace(/\D/g, ''); // Remove non-numeric characters
+    const cardNumber = input.replace(/(.{4})/g, '$1-'); // Add a dash every 4 characters
+    this.checkoutForm.patchValue({ cardNumber }); // Update the form value
+  }
+
 
 
   months: string[] = [
@@ -63,8 +90,8 @@ ngOnInit() {
 
   this.checkoutForm = this.formBuilder.group({
     name: ['', Validators.required],
-    cardNumber: ['', [Validators.required]],
-    CVV: ['', [Validators.required,]],
+    cardNumber: ['', [Validators.required,cardNumberValidator]],
+    CVV: ['', [Validators.required,CVVValidator]],
     address: ['', Validators.required],
     phoneNo: ['', Validators.required],
     

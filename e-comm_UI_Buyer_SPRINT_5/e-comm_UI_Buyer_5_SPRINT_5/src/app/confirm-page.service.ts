@@ -8,7 +8,7 @@ import { OrderDto } from './order-list-dto';
 })
 export class ConfirmPageService {
 
-  private baseUrl = 'http://localhost:8086'; 
+  private baseUrl = 'http://localhost:9090/order'; 
 
   constructor(private http: HttpClient) { }
 

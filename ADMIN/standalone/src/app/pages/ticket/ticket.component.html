@@ -1,0 +1,34 @@
+
+<b>ALL THE TICKETS AVAILABLE</b>
+
+<div class="order-container" *ngFor="let element of ticketDto">
+    <div class="order-details">
+        <div class="left-details">
+            <p><strong><span style="color: red; font-style: italic;">Ticket ID:</span></strong> {{ element.ticketID }}</p>
+           
+            <p><strong>Buyer Name:</strong> {{ element.name }}</p>
+            <p><strong>Buyer_Email:</strong> {{element.email }}</p>
+            <p><strong>Description:</strong> {{element.description }}</p>
+            <p><strong>Created_At:</strong> {{element.createdAt}}</p>
+            <p *ngIf="element.state==='Closed'"><strong>ClosedAt:</strong> {{element.closedAt}}</p>
+            <p>
+                <strong>Status:</strong>
+                <span [ngClass]="{
+                    
+                    'status-active': element.state === 'Active',
+                    'status-closed': element.state === 'Closed',
+                   
+                }" class="inline-status">
+                    {{ element.state }}
+            </span>
+           
+            </p>
+            <p> <button *ngIf="element.state==='Active'" (click)="closeTicket(element.ticketID)">Close Ticket</button></p>
+           
+        </div>
+     </div>
+   
+   
+
+    <hr class="hr-divider">
+</div>

@@ -1,0 +1,27 @@
+.table-container {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    border-radius: 8px; /* Rounded corners */
+    overflow: hidden; /* Ensure shadow doesn't overflow */
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    padding: 10px; /* Adjust spacing */
+    border: 1px solid #ddd; /* Add borders */
+}
+
+.table th {
+    background-color: #f2f2f2; /* Light background for header */
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* Alternate row color */
+}
+
+.table tbody tr:hover {
+    background-color: #f0f0f0; /* Highlight on hover */
+}

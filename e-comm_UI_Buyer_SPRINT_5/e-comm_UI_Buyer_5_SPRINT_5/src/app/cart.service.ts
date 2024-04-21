@@ -28,7 +28,7 @@ import { CartDto } from './cart-dto';
 export class CartService {
   cartItems: Product[] = [];
  
-  private baseUrl = 'http://localhost:8084/cart'; // Update with your backend URL
+  private baseUrl = 'http://localhost:9090/cart'; // Update with your backend URL
  
   constructor(private http: HttpClient) { }
  

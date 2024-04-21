@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class EditprofileService {
 
   
-  private baseURL = "http://localhost:8082/buyer/updateprofile";
+  private baseURL = "http://localhost:9090/buyer/updateprofile";
  
   constructor(private http: HttpClient) { }
  
