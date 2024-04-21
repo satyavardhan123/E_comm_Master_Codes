@@ -12,19 +12,19 @@ export class OrderService {
   constructor(private http:HttpClient) { }
 
   public getAllOrders(){
-    return this.http.get<Order[]>("http://localhost:8086/orderdetails");
+    return this.http.get<Order[]>("http://localhost:9090/order/orderdetails");
   }
 
   updateOrderStatus(orderId: number, newStatus: string): Observable<any> {
-    return this.http.put(`http://localhost:8086/orderstatus/${orderId}`, newStatus);
+    return this.http.put(`http://localhost:9090/order/orderstatus/${orderId}`, newStatus);
   }
 
   getOrderCountByStatus(status: string): Observable<number> {
-    return this.http.get<number>(`http://localhost:8086/statuscount/${status}`);
+    return this.http.get<number>(`http://localhost:9090/order/statuscount/${status}`);
   }
 
   getOrderDetailsByStatus(status: string): Observable<Order[]> {
-    const url = `http://localhost:8086/getorderdetails/${status}`;
+    const url = `http://localhost:9090/order/getorderdetails/${status}`;
     return this.http.get<Order[]>(url);
   }
   

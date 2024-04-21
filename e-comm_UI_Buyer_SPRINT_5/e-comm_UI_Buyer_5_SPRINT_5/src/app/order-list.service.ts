@@ -8,7 +8,7 @@ import { OrderDto } from './order-list-dto';
 })
 export class OrderListService {
 
-  private baseUrl = 'http://localhost:8086'; // Updated port number
+  private baseUrl = 'http://localhost:9090/order'; // Updated port number
 
   constructor(private http: HttpClient) { }
 

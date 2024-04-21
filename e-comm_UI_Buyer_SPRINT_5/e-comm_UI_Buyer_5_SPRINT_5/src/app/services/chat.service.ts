@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class ChatService {
 
-  private baseUrl = 'http://localhost:8088/chat'; // Update the base URL with port 8087
+  private baseUrl = 'http://localhost:9090/chat'; // Update the base URL with port 8087
 
   constructor(private http: HttpClient) { }
 

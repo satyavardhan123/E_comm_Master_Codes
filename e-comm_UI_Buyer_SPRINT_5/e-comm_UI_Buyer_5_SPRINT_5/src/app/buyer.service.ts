@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class BuyerService {
 
  
-  private baseURL = "http://localhost:8082/buyer/buyerdetails";
+  private baseURL = "http://localhost:9090/buyer/buyerdetails";
   constructor(private http: HttpClient) { }
  
  

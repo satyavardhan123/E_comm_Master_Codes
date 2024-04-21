@@ -10,6 +10,6 @@ export class ProductService {
   constructor(private http:HttpClient) { }
 
   public getAllProducts(){
-    return this.http.get<Product[]>("http://localhost:8081/products/getAllProducts");
+    return this.http.get<Product[]>("http://localhost:9090/products/getAllProducts");
   }
 }

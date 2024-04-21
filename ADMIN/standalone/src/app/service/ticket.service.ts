@@ -11,10 +11,10 @@ export class TicketService {
 
   getAllTickets()
   {
-     return this.http.get<ticket[]>("http://localhost:8088/chat/getchat");
+     return this.http.get<ticket[]>("http://localhost:9090/chat/getchat");
   }
 
   closeTicket(ticketId: number): Observable<string> {
-    return this.http.put<string>(`http://localhost:8088/chat/close/${ticketId}`, null);
+    return this.http.put<string>(`http://localhost:9090/chat/close/${ticketId}`, null);
   }
 }

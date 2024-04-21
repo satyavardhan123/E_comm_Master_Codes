@@ -11,19 +11,19 @@ export class CountService {
   constructor(private http:HttpClient) { }
 
   public getProductCount():Observable<number>{
-    return this.http.get<number>("http://localhost:8081/products/getcount");
+    return this.http.get<number>("http://localhost:9090/products/getcount");
   }
 
   public getSellerCount():Observable<number>{
-    return this.http.get<number>("http://localhost:8083/seller-registrations/getcount");
+    return this.http.get<number>("http://localhost:9090/seller-registrations/getcount");
   }
 
   public getBuyerCount():Observable<number>{
-    return this.http.get<number>("http://localhost:8082/buyer/getcount");
+    return this.http.get<number>("http://localhost:9090/buyer/getcount");
   }
   
   public getOrderCount():Observable<number>
   {
-    return this.http.get<number>("http://localhost:8086/getcount")
+    return this.http.get<number>("http://localhost:9090/order/getcount")
   }
 }

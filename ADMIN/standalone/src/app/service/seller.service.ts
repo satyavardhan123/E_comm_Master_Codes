@@ -11,6 +11,6 @@ export class SellerService {
   constructor(private http:HttpClient) { }
 
   public getAllSellers(){
-    return this.http.get<Seller[]>("http://localhost:8083/seller-registrations/registereddetails");
+    return this.http.get<Seller[]>("http://localhost:9090/seller-registrations/registereddetails");
   }
 }

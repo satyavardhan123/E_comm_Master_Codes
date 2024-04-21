@@ -1,51 +1,3 @@
-<!-- <app-buyernavbar></app-buyernavbar>
-
-
-  <div class="background-image"></div>
-  <div class="total-cart-value">
-    <h2>Total Cart Value: ₹{{ totalCartValue }}</h2>
-  </div>
-    <div class="checkout-form">
-    <h2>Checkout Here!</h2>
-    <form>
-      <div class="form-group">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-      </div>
-      <div class="form-group">
-        <label for="cardNumber">Card Number:</label>
-        <input type="text" id="cardNumber" name="cardNumber" required>
-      </div>
-      <div class="form-group">
-            <label>Expiry Date:</label>
-            <div class="expiry-date">
-              <select name="expiryMonth" id="expiryMonth" required>
-                <option value="" disabled selected>Select Month</option>
-                <option *ngFor="let month of months" [value]="months.indexOf(month) + 1">{{ month }}</option>
-              </select>
-              <select name="expiryYear" id="expiryYear" required>
-                <option value="" disabled selected>Select Year</option>
-                <option *ngFor="let year of years" [value]="year">{{ year }}</option>
-              </select>
-            </div>
-          </div>
-      <div class="form-group">
-        <label for="cvv">CVV:</label>
-        <input type="text" id="cvv" name="cvv" required>
-      </div>
-      <div class="form-group">
-        <label for="phoneNumber">Phone Number:</label>
-        <input type="tel" id="phoneNumber" name="phoneNumber" required>
-      </div>
-      <div class="form-group">
-        <label for="address">Address:</label>
-        <textarea id="address" name="address" rows="3" required></textarea>
-      </div>
-      <button type="submit" class="proceed-to-payment-button">Proceed to Payment</button>
-    </form>
-  </div>
-  
-   -->
    <app-buyernavbar></app-buyernavbar>
  <!-- app.component.html -->
 
@@ -64,7 +16,7 @@
     
     <div class="form-group">
       <label for="cardNumber">Card Number:</label>
-      <input type="text" class="form-control" formControlName="cardNumber" id="cardNumber" placeholder="XXXX-XXXX-XXXX-XXXX">
+      <input type="text" class="form-control" formControlName="cardNumber" id="cardNumber" placeholder="XXXX-XXXX-XXXX-XXXX"  (input)="formatCardNumber($event)">
       <div *ngIf="checkoutForm.get('cardNumber')?.errors && checkoutForm.get('cardNumber')?.dirty" class="text-danger">   
         <div *ngIf="checkoutForm.get('cardNumber')?.hasError('required')">Card Number is required.</div>
         <div *ngIf="checkoutForm.get('cardNumber')?.hasError('invalidCardNumber')">Please enter a valid Card Number.</div>

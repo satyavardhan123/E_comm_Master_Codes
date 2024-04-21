@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PaymentService {
-  private baseUrl = 'http://localhost:8085';
+  private baseUrl = 'http://localhost:9090/payment';
 
   constructor(private http: HttpClient) { }
   addPayment(payment: PaymentDto): Observable<string> {

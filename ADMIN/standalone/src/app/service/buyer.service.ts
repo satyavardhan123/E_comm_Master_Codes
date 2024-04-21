@@ -9,6 +9,6 @@ export class BuyerService {
   constructor(private http:HttpClient) { }
 
   public getAllBuyer(){
-    return this.http.get<Buyer[]>("http://localhost:8082/buyer/registereddetails");
+    return this.http.get<Buyer[]>("http://localhost:9090/buyer/registereddetails");
   }
 }
