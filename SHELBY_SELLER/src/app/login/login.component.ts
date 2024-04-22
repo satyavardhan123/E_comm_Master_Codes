@@ -5,7 +5,7 @@ import { NgForm } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
 import Swal from 'sweetalert2';
 import { SellerService } from '../service/seller.service';
-import { User } from '@auth0/auth0-spa-js';
+//import { User } from '@auth0/auth0-spa-js';
 import { login } from '../model/login.model';
 import { Register } from '../model/register.model';
 import { AuthService } from '../service/auth.service';

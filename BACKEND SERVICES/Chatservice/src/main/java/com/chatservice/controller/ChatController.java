@@ -12,7 +12,7 @@ import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/chat")
-@CrossOrigin("*")
+
 @RequiredArgsConstructor
 public class ChatController {
 

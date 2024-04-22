@@ -47,20 +47,20 @@ public class SellerRegistrationServiceImpl implements SellerRegistrationService 
 	public boolean validateLogin(LoginDTO loginRequest) {
 		String emailID = loginRequest.getEmailID();
 		String password = loginRequest.getPassword();
-		SellerRegistration seller = sellerRegistrationRepo.findByEmailID(emailID);
+		SellerRegistration seller = sellerRegistrationRepo.findBySellerEmailID(emailID);
 		return seller != null && seller.getPassword().equals(password);
 	}
 
 	@Override
 	public boolean existsByEmailID(String emailID) {
-		return sellerRegistrationRepo.existsByEmailID(emailID);
+		return sellerRegistrationRepo.existsBySellerEmailID(emailID);
 	}
 
 	@Override
 	public ResponseEntity<String> forgotPassword(String email) {
-		SellerRegistration seller = sellerRegistrationRepo.findByEmailID(email);
+		SellerRegistration seller = sellerRegistrationRepo.findBySellerEmailID(email);
 		if (seller != null) {
-			sendemail.sendSimpleEmail(seller.getEmailID(),
+			sendemail.sendSimpleEmail(seller.getSellerEmailID(),
 					seller.getName() + " Your password is " + seller.getPassword(),
 					"Welcome to our E-Comm Application");
 			return new ResponseEntity<>("Password sent to email", HttpStatus.OK);
@@ -70,7 +70,7 @@ public class SellerRegistrationServiceImpl implements SellerRegistrationService 
 
 	@Override
 	public ResponseEntity<String> updateProfile(SellerRegistrationDTO profiledto) {
-		SellerRegistration seller = sellerRegistrationRepo.findByEmailID(profiledto.getEmailID());
+		SellerRegistration seller = sellerRegistrationRepo.findBySellerEmailID(profiledto.getEmailID());
 
 		seller.setCompanyAddress(profiledto.getCompanyAddress());
 		seller.setPhoneNumber(profiledto.getPhoneNumber());
@@ -95,7 +95,7 @@ public class SellerRegistrationServiceImpl implements SellerRegistrationService 
 
 	@Override
 	public List<SellerRegistrationDTO> getSellerDetailsByEmail(String emailID) {
-		SellerRegistration seller = sellerRegistrationRepo.findByEmailID(emailID);
+		SellerRegistration seller = sellerRegistrationRepo.findBySellerEmailID(emailID);
 		if (seller != null) {
 			SellerRegistrationDTO sellerDto = modelMapper.map(seller, SellerRegistrationDTO.class);
 			return Collections.singletonList(sellerDto);

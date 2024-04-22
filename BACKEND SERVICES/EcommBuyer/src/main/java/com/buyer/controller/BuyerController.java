@@ -78,6 +78,8 @@ public class BuyerController {
 	}
 
 	public ResponseEntity<String> fallbackMethod(@RequestBody PaymentDto paymentDto, RuntimeException ex) {
-		return new ResponseEntity<>("Service is down", HttpStatus.BAD_REQUEST);
+		//return new ResponseEntity<>("Service is down", HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<>("{\"message\": \"server id down try after some time\"}" ,HttpStatus.BAD_REQUEST
+				);
 	}
 }

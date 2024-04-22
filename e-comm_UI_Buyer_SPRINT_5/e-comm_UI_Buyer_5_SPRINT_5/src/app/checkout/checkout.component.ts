@@ -116,17 +116,53 @@ makePayment() {
   );
 }
 
+// onSubmit(): void {
+//   this.buyerDto = JSON.parse(localStorage.getItem('buyerDto') || '{}');
+//   if (this.checkoutForm.valid) {
+//     const paymentData: PaymentDto = {
+//       paymentId: 0,
+//       name: this.checkoutForm.value.name,
+//       email: this.buyerDto.email,
+//       address: this.checkoutForm.value.address,
+//       phoneNo: this.checkoutForm.value.phoneNo,
+//       totalCartValue: this.totalCartValue,
+     
+//     };
+//     this.paymentService.addPayment(paymentData).subscribe(() => {
+//       //alert('Payment done');
+//       Swal.fire({
+//         title: "Are you sure?",
+//         text: "Do you want to pay!",
+//         icon: "warning",
+//         confirmButtonColor: "#3085d6",
+//         confirmButtonText: "Yes!"
+//       }).then((result) => {
+//         if (result.isConfirmed) {
+//           Swal.fire({
+//             title: "Payment !",
+//             text: "Payment Done.",
+//             icon: "success"
+//           });
+//           this.router.navigate(['/confirmpage']); }
+//       });
+     
+//     },
+    
+//   );
+// } else {
+//   // Form is invalid
+//   alert('Payment Failed.');
+// }}}
 onSubmit(): void {
   this.buyerDto = JSON.parse(localStorage.getItem('buyerDto') || '{}');
   if (this.checkoutForm.valid) {
     const paymentData: PaymentDto = {
-      paymentId: 0,
+      paymentId: 0 ,
       name: this.checkoutForm.value.name,
       email: this.buyerDto.email,
       address: this.checkoutForm.value.address,
       phoneNo: this.checkoutForm.value.phoneNo,
-      totalCartValue: this.totalCartValue,
-     
+      totalCartValue: this.totalCartValue
     };
     this.paymentService.addPayment(paymentData).subscribe(() => {
       //alert('Payment done');
@@ -147,7 +183,14 @@ onSubmit(): void {
       });
      
     },
-    
+    (error) => {
+      // Payment service
+     
+      const errorMessage = error?.error?.message || 'Unknown error occurred';
+      alert(errorMessage);
+      console.log(errorMessage);
+    }
+   
   );
 } else {
   // Form is invalid

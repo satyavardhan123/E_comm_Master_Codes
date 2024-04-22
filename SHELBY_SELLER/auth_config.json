@@ -1,0 +1,10 @@
+{
+    "domain": "dev-5je8pmo34iqgtwjf.us.auth0.com",
+    "clientId": "RA6rlItnKMTorG1l4rixt41mqHFn72Qp",
+    "authorizationParams": {
+      "audience": "https://dev-5je8pmo34iqgtwjf.us.auth0.com/api/v2/"
+    },
+    "apiUri": "http://localhost:3001",
+    "appUri": "http://localhost:4200",
+    "errorPath": "/error"
+  }
