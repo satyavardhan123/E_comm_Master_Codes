@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { TicketService } from 'src/app/service/ticket.service';
 import { ticket } from 'src/app/model/ticket.model';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-ticket',
@@ -35,17 +36,38 @@ export class TicketComponent {
   }
 
   closeTicket(ticketId: number): void {
-    this.ticketservice.closeTicket(ticketId).subscribe(
-      response => {
-        console.log('Ticket closed successfully:', response);
-        // Handle success response
-        this.getTickets();
-      },
-      error => {
-        console.error('Failed to close ticket:', error);
-        // Handle error response
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'Is the Issue Resolved? Do you want to close this ticket?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, close it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.ticketservice.closeTicket(ticketId).subscribe(
+          response => {
+            Swal.fire(
+              'Closed!',
+              'Ticket closed successfully.',
+              'success'
+            );
+            // Refresh the list of tickets after a successful operation
+            this.getTickets();
+          },
+          error => {
+            console.error('Failed to close ticket:', error);
+            Swal.fire(
+              'Error!',
+              'An error occurred while closing the ticket.',
+              'error'
+            );
+            // You could also add additional error handling or logging here
+          }
+        );
       }
-    );
+    });
   }
 
 }

@@ -8,10 +8,11 @@ import { Observable } from 'rxjs';
 })
 export class PaymentService {
   private baseUrl = 'http://localhost:9090/payment';
+  private url='http://localhost:9090/buyer';
 
   constructor(private http: HttpClient) { }
   addPayment(payment: PaymentDto): Observable<string> {
-    return this.http.post<string>(`${this.baseUrl}/payment`, payment);
+    return this.http.post<string>(`${this.url}/payment`, payment);
   }
 
   getAllPayments(): Observable<PaymentDto[]> {

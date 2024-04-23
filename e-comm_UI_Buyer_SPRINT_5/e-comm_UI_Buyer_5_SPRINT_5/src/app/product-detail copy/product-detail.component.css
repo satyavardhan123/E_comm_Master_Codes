@@ -99,3 +99,27 @@ img{
   .size-option.active {
     background-color: #ff6b6b;
   }
+  .quantity-container {
+    margin-bottom: 20px;
+ 
+}
+ 
+.quantity-container label {
+    margin-right: 10px;
+}
+ 
+.quantity-container input {
+    width: 50px;
+    height: 30px;
+    padding: 5px 10px;
+    font-size: 16px;
+}
+ 
+.cart{
+    width: 150px;
+    height: 30px;
+    margin-top: 100px;
+    background-color: #088178;
+    color: #fff;
+    border-radius: 15px;
+}

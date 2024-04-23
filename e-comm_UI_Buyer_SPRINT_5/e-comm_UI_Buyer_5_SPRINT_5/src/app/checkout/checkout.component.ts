@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 import { PaymentService } from '../payment.service';
 
 function cardNumberValidator(control: AbstractControl): ValidationErrors | null {
-  const validCardNumber =8688965686868896 ;
+  const validCardNumber =4242424242424242 ;
   const enteredCardNumber = control.value.replace(/-/g, ''); // Remove dashes before validation
   if (enteredCardNumber.length !== 16 || parseInt(enteredCardNumber) !== validCardNumber) {
     return { invalidCardNumber: true };
